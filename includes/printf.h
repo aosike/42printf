@@ -32,5 +32,3 @@ typedef struct		s_format
 	char			no_conv;
 }					t_format;
 typedef int			(*t_fc)(t_format*, va_list);
-
-
