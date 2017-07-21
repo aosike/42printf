@@ -22,7 +22,7 @@ int	ft_printf_core(char *format, va_list ap, char **ret)
 	while ((per = ft_strchr(format, '%')) != NULL)
 	{
 		ft_bzero(&fmt, sizeof(fmt));
-		ft_bzero(&buf, BUFF_SIZE); //?
+		ft_bzero(&buf, BUFF_SIZE);
 		format = parse_fmt(per + 1, &fmt);
 		if (fmt.conv != '\0')
 			if (tables_dispatch(buf, &fmt, ap) == -1)
@@ -31,7 +31,7 @@ int	ft_printf_core(char *format, va_list ap, char **ret)
 	if (*format != '\0')
 		ft_buffer_add(&b, format, ft_strlen(format));
 	*ret = b.str;
-	return ((int)ft_strlen(buf)); //?
+	return ((int)ft_strlen(buf));
 }
 
 int	tables_dispatch(char buf[BUFF_SIZE], t_format *fmt, va_list vl)

@@ -1,6 +1,6 @@
 #include "ft_print.h"
 
-int	conv_wc(t_buf *buf, t_format *fmt, va_list ap)
+int	conv_wc(t_buf *buf, t_format *fmt, va_list vl)
 {
 	char	arg[MB_LEN_MAX + 1]; ////////////////////////////
 	size_t	arglen;

@@ -45,7 +45,7 @@ size_t	ft_wcstombs(char *s, wchar_t *pwcs, size_t n)
 	return (offset);
 }
 
-size_t	ft_wcslen(const wchat_t *s)
+size_t	ft_wcslen(const wchar_t *s)
 {
 	size_t	i;
 

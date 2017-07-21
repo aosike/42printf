@@ -41,7 +41,7 @@ int			conv_u(t_buf *buf, t_format *fmt, va_list vl)
 	return (1);	
 }
 
-int			conv_o(t_buf *buf, t_format *fmt, va_list ap)
+int			conv_o(t_buf *buf, t_format *fmt, va_list vl)
 {
 	char	*arg;
 

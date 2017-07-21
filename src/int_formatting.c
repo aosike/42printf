@@ -42,7 +42,7 @@ int	int_sign(t_buffer *buf, t_format *fmt, char *arg)
 	return (3); /////////////
 }
 
-int	int_precisiong(t_buffer *buf, t_format *fmt, size_t arglen)
+int	int_precision(t_buffer *buf, t_format *fmt, size_t arglen)
 {
 	if (fmt->prec < 0)
 		return (0);

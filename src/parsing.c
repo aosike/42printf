@@ -33,7 +33,7 @@ char	*parse_min_width(char *format, t_format *fmt)
 	return (format);
 }
 
-char	*parse_precision(char *format, t_format *fmt)
+char	*parse_precision(char *format, t_format *fmt) //add * functionality here
 {
 	int		res;
 	char	n;
