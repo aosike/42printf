@@ -24,7 +24,7 @@ t_buf	*ft_buf_add(t_buf *b, char *s, size_t len)
 	return (b);
 }
 
-t_buf	*ft_buffer_resize(t_buf *b, size_t len)
+t_buf	*ft_buf_resize(t_buf *b, size_t len)
 {
 	char	*newstr;
 	size_t	newsize;
