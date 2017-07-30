@@ -4,8 +4,8 @@ static int	formatting_o(t_buf *buf, t_format *fmt, char *arg, size_t arglen)
 {
 	int_format_intro(fmt, arg, &arglen); ////////////
 	if (fmt->f_minus == 0)
-		int_padding(pb, fmt, (fmt->f_sharp) ? arglen + 1 : arglen, arg[0]);
-	if (fmt->f_shapr && (!ft_strequ("0", arg) || fmt->prec == 0))
+		int_padding(buf, fmt, (fmt->f_sharp) ? arglen + 1 : arglen, arg[0]);
+	if (fmt->f_sharp && (!ft_strequ("0", arg) || fmt->prec == 0))
 		ft_buf_add(buf, "0", 1);
 	int_precision(buf, fmt, (fmt->f_sharp) ? arglen + 1 : arglen);
 	ft_buf_add(buf, arg, arglen);
@@ -27,13 +27,13 @@ int			conv_u(t_buf *buf, t_format *fmt, va_list vl)
 	char	*arg;
 
 	if (fmt->len_mod == '\0')
-		arg = ft_utoa_base(va_arg(ap, unsigned), 10); ///////////////
+		arg = ft_utoa_base(va_arg(vl, unsigned), 10); ///////////////
 	else if (fmt->len_mod == 'H')
-		arg = ft_utoa_base((unsigned char)va_arg(ap, unsigned), 10); ////////////
+		arg = ft_utoa_base((unsigned char)va_arg(vl, unsigned), 10); ////////////
 	else if (fmt->len_mod == 'h')
-		arg = ft_utoa_base((unsigned short)va_arg(ap, unsigned), 10); ////////////
+		arg = ft_utoa_base((unsigned short)va_arg(vl, unsigned), 10); ////////////
 	else
-		arg = ft_utoa_base(va_arg(ap, unsigned long), 10); ////////////
+		arg = ft_utoa_base(va_arg(vl, unsigned long), 10); ////////////
 	if (!arg)
 		exit_printf(6); /////////////?????????????????/
 	formatting_u(buf, fmt, arg, ft_strlen(arg));
@@ -46,13 +46,13 @@ int			conv_o(t_buf *buf, t_format *fmt, va_list vl)
 	char	*arg;
 
 	if (fmt->len_mod == '\0')
-		arg = ft_utoa_base(va_arg(ap, unsigned), 8);
-	else if (fmt->len_mod == '\0')
-		arg = ft_utoa_base((unsigned char)va_arg(ap, unsigned), 8);
-	else if (fmt->len_mod == '\0')
-		arg = ft_utoa_base((unsigned short)va_arg(ap, unsigned), 8);
-	else if (fmt->len_mod == '\0')
-		arg = ft_utoa_base(va_arg(ap, unsigned long), 8);
+		arg = ft_utoa_base(va_arg(vl, unsigned), 8);
+	else if (fmt->len_mod == 'H')
+		arg = ft_utoa_base((unsigned char)va_arg(vl, unsigned), 8);
+	else if (fmt->len_mod == 'h')
+		arg = ft_utoa_base((unsigned short)va_arg(vl, unsigned), 8);
+	else
+		arg = ft_utoa_base(va_arg(vl, unsigned long), 8);
 	if (!arg)
 		exit_printf(7);
 	formatting_o(buf, fmt, arg, ft_strlen(arg));

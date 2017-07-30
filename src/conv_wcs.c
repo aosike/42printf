@@ -7,7 +7,7 @@ int	conv_wcs(t_buf *buf, t_format *fmt, va_list vl)
 	size_t	arglenmax;
 	size_t	wlen;
 
-	if ((wcs = va_arg(ap, wchar_t*)) == NULL)
+	if ((wcs = va_arg(vl, wchar_t*)) == NULL)
 		wcs = L"(null)"; //what the fuck is that
 	arglenmax = ft_wcslen(wcs) * sizeof(wchar_t) + 1;
 	if ((arg = (char*)malloc(arglenmax)) == 0)

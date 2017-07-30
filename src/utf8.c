@@ -65,13 +65,13 @@ int		conv_to_utf8(int wbytes, wchar_t wchar, char *s)
 	else if (wbytes == 3)
 	{
 		s[2] = 0x80 | (wchar & 0x3F);
-		s[1] = 0x80 | (wchat >> 6 & 0x3F);
+		s[1] = 0x80 | (wchar >> 6 & 0x3F);
 		s[0] = 0xE0 | (wchar >> 12 & 0x0F);
 	}
 	else if (wbytes == 4)
 	{
 		s[3] = 0x80 | (wchar & 0x3F);
-		s[2] = 0x80 | (wchat >> 6 & 0x3F);
+		s[2] = 0x80 | (wchar >> 6 & 0x3F);
 		s[1] = 0x80 | (wchar >> 12 & 0x3F);
 		s[0] = 0xF0 | (wchar >> 18 & 0x07);
 	}

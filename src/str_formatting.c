@@ -8,7 +8,7 @@ static size_t	get_padding(size_t len, unsigned mw, int prec)
 		return (mw > len ? mw - len : 0);
 }
 
-int				str_formatting(t_buffer *buf, t_format *fmt, size_t arglen)
+int				str_formatting(t_buf *buf, t_format *fmt, size_t arglen)
 {
 	size_t	pad;
 	char	fill;

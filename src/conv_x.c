@@ -1,11 +1,19 @@
 #include "ft_printf.h"
 
+char	*ft_strtoupper(char *arg)
+{
+	char	*c = arg;
+	while (*c)
+		*c = ft_toupper(*c);
+	return (arg);
+}
+
 static int	formatting_x(t_buf *buf, t_format *fmt, char * arg, size_t arglen)
 {
 	int_format_intro(fmt, arg, &arglen);
 	if (fmt->f_minus == 0 && fmt->f_zero == 0)
 		int_padding(buf, fmt, (fmt->f_sharp) ? arglen + 2 : arglen, arg[0]);
-	if (fmt->conv = 'p')
+	if (fmt->conv == 'p')
 		ft_buf_add(buf, "0x", 2);
 	else if (fmt->f_sharp && ft_strcmp("0", arg))
 		ft_buf_add(buf, (fmt->conv == 'X') ? "0X" : "0x", 2);
@@ -25,13 +33,13 @@ int		conv_x(t_buf *buf, t_format *fmt, va_list vl)
 	if (fmt->len_mod == '\0')
 		arg = ft_utoa_base(va_arg(vl, unsigned), 16);
 	else if (fmt->len_mod == 'H')
-		arg = ft_utoa_base((unsigned char)va_arg(ap, unsigned), 16);
+		arg = ft_utoa_base((unsigned char)va_arg(vl, unsigned), 16);
 	else if (fmt->len_mod == 'h')
 		arg = ft_utoa_base((unsigned short)va_arg(vl, unsigned), 16);
 	else
 		arg = ft_utoa_base(va_arg(vl, unsigned long), 16);
 	if (!arg)
-		exit_print(8);
+		exit_printf(8);
 	if (fmt->conv == 'X')
 		arg = ft_strtoupper(arg); ////????
 	formatting_x(buf, fmt, arg, ft_strlen(arg));

@@ -9,10 +9,10 @@ int	int_format_intro(t_format *fmt, char *arg, size_t *arglen)
 	return (0);
 }
 
-int	int_padding(t_buffer *buf, t_format *fmt, size_t arglen, int fchar)
+int	int_padding(t_buf *buf, t_format *fmt, size_t arglen, int fchar)
 {
 	size_t	max;
-	size_t oldprec;
+	size_t	oldprec;
 	int		pad;
 	char	fill;
 
@@ -23,12 +23,17 @@ int	int_padding(t_buffer *buf, t_format *fmt, size_t arglen, int fchar)
 		max = FT_MAX(arglen - 1, oldprec) + fmt->f_space;
 		pad = fmt->min_width > max ? fmt->min_width - max : 0;
 	}
+	else
+	{
+		max = FT_MAX(arglen - 1, oldprec) + fmt->f_space;
+		pad = fmt->min_width > max ? fmt->min_width - max : 0;
+	}
 	if (pad > 0)
 		ft_buf_set(buf, fill, pad);
 	return (pad);
 }
 
-int	int_sign(t_buffer *buf, t_format *fmt, char *arg)
+int	int_sign(t_buf *buf, t_format *fmt, char *arg)
 {
 	if (arg[0] == '-')
 		ft_buf_set(buf, '-', 1);
@@ -42,11 +47,11 @@ int	int_sign(t_buffer *buf, t_format *fmt, char *arg)
 	return (3); /////////////
 }
 
-int	int_precision(t_buffer *buf, t_format *fmt, size_t arglen)
+int	int_precision(t_buf *buf, t_format *fmt, size_t arglen)
 {
 	if (fmt->prec < 0)
 		return (0);
-	if ((size_t)fmt->prec < arlgen)
+	if ((size_t)fmt->prec < arglen)
 		return (0);
 	ft_buf_set(buf, '0', (size_t)fmt->prec - arglen);
 	return (1);

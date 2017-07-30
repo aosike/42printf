@@ -1,3 +1,5 @@
+#include "ft_printf.h"
+
 char	*parse_flags(char *format, t_format *fmt)
 {
 	char	c;

@@ -6,18 +6,18 @@
 #    By: agundry <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 09:03:11 by agundry           #+#    #+#              #
-#    Updated: 2017/07/21 12:24:53 by agundry          ###   ########.fr        #
+#    Updated: 2017/07/25 13:57:42 by agundry          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	libftprintf.a
+NAME = libftprintf.a
 
-CC =	gcc
+CC = gcc
 
-CFLAGS =	-Wall -Werror -Wextra
+CFLAGS += -Wall -Werror -Wextra
 
+IPATH = include
 INC = ft_printf.h
-IPATH = includes
 HEADERS = $(INC:%.h=$(IPATH)/%.h)
 CFLAGS += $(addprefix -I,$(IPATH))
 
@@ -29,11 +29,11 @@ SRC =	ft_printf.c ft_printf_core.c \
 		parsing.c ft_xtoa_base.c int_formatting.c str_formatting.c utf8.c
 
 OPATH = obj
-OBJ =	$(addprefix $(OPATH)/,$(SRC:%.c=%.o))
+OBJ = $(addprefix $(OPATH)/,$(SRC:%.c=%.o))
 
 LPATH = libft
 LIBFT = $(LPATH)/libft.a
-CFLAGS += -I $(LPATH)/include
+CFLAGS += -I$(LPATH)/include
 
 all : $(NAME)
 
@@ -45,7 +45,7 @@ $(NAME) : $(OBJ) $(LIBFT)
 
 $(OBJ): $(HEADERS) | $(OPATH)
 $(OBJ): $(OPATH)/%.o: %.c
-	$(CC) $(CFlAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OPATH):
 	@-mkdir -p $@

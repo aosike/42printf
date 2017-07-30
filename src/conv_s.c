@@ -1,4 +1,6 @@
-int	conv_s(char buf[BUFF_SIZE], t_format *fmt, va_list vl)
+#include "ft_printf.h"
+
+int	conv_s(t_buf *buf, t_format *fmt, va_list vl)
 {
 	char	*arg;
 	size_t	arglen;
@@ -11,7 +13,7 @@ int	conv_s(char buf[BUFF_SIZE], t_format *fmt, va_list vl)
 	arglen = ft_strlen(arg);
 	if (fmt->min_width > 0 && fmt->f_minus == 0)
 		str_formatting(buf, fmt, arglen);
-	buf_add(buf, arg, arglen);
+	ft_buf_add(buf, arg, arglen);
 	if (fmt->min_width > 0 && fmt->f_minus == 1)
 		str_formatting(buf, fmt, arglen);
 	return (1);
