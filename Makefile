@@ -6,7 +6,7 @@
 #    By: agundry <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 09:03:11 by agundry           #+#    #+#              #
-#    Updated: 2017/07/31 16:16:03 by agundry          ###   ########.fr        #
+#    Updated: 2017/07/31 16:20:47 by agundry          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ OBJ = $(addprefix $(OPATH)/,$(SRC:%.c=%.o))
 
 LPATH = libft
 LIBFT = $(LPATH)/libft.a
-CFLAGS += -I$(LPATH)/include
+CFLAGS += -I$(LPATH)
 
 all : $(NAME)
 
