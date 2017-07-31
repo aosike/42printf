@@ -7,7 +7,7 @@
 # include <stdio.h>
 # include <wchar.h>
 # include <limits.h>
-# include "../libft/libft.h"
+# include "../libft/libft.a"
 
 # define SPECIFIERS "csCSdouxXp%"
 # define FT_ABS(x) (((x) < 0) ? -(x) : (x))
