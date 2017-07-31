@@ -6,7 +6,7 @@
 #    By: agundry <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 09:03:11 by agundry           #+#    #+#              #
-#    Updated: 2017/07/29 19:43:34 by agundry          ###   ########.fr        #
+#    Updated: 2017/07/31 15:59:15 by agundry          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,7 @@ $(LIBFT):
 
 $(NAME) : $(OBJ) $(LIBFT)
 	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME) 
-	ranlib $(LIBFT)
+	ranlib $(NAME) $(LIBFT)
 
 $(OBJ): $(HEADERS) | $(OPATH)
 $(OBJ): $(OPATH)/%.o: %.c
