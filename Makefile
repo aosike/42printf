@@ -6,7 +6,7 @@
 #    By: agundry <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 09:03:11 by agundry           #+#    #+#              #
-#    Updated: 2017/07/31 18:51:29 by agundry          ###   ########.fr        #
+#    Updated: 2017/07/31 18:59:14 by agundry          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SRC =	ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
 		\
 		ft_printf.c ft_printf_core.c parsing.c ft_xtoa_base.c utf8.c \
 		int_formatting.c str_formatting.c conv_c.c conv_d.c conv_prc.c \
-		conv_s.c conv_uo.c conv_wc.c conv_wcs.c conv_x.c
+		conv_s.c conv_uo.c conv_wc.c conv_wcs.c conv_x.c utils.c
 
 OBJ =	$(patsubst %.c,%.o,$(SRC)) 
 
