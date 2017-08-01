@@ -1,3 +1,5 @@
+#include "ft_printf.h"
+
 void	exit_printf(int code)
 {
 	write(2, "malloc error\n", 13);
