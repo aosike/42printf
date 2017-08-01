@@ -8,6 +8,6 @@ void	exit_printf(int code)
 
 int	cleanup_buf(t_buf *pb)
 {
-	FT_BUFFER_FREE(pb);
+	FT_BUF_FREE(pb);
 	return (-1);
 }
