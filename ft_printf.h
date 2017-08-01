@@ -12,7 +12,7 @@
 # define SPECIFIERS "csCSdouxXp%"
 # define FT_ABS(x) (((x) < 0) ? -(x) : (x))
 # define FT_MAX(a, b) ((a) < (b) ? (b) : (a))
-# define FT_BUF_FREE(b) (free((b)->str))
+# define FT_BUF_FREE(b) (free((b)->buf))
 
 # ifndef MB_LEN_MAX
 #  define MB_LEN_MAX 4
