@@ -6,7 +6,7 @@
 #    By: agundry <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 09:03:11 by agundry           #+#    #+#              #
-#    Updated: 2017/02/10 17:20:44 by agundry          ###   ########.fr        #
+#    Updated: 2017/07/31 18:45:17 by agundry          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,11 @@ SRC =	ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
 		ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c ft_itoa.c \
 		ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c ft_putchar_fd.c \
 		ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_strnequ.c \
-		ft_buf.c ft_realloc.c
+		ft_buf.c ft_realloc.c \
+		\
+		ft_printf.c ft_printf_core.c parsing.c ft_xtoa_base.c utf8.c \
+		int_formatting.c str_formatting.c conv_c.c conv_d.c conv_prc.c \
+		conv_s.c conv_uo.c conv_wc.c conv_wcs.c conv_x.c
 
 OBJ =	$(patsubst %.c,%.o,$(SRC)) 
 
