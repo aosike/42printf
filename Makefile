@@ -6,11 +6,11 @@
 #    By: agundry <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 09:03:11 by agundry           #+#    #+#              #
-#    Updated: 2017/07/31 18:45:17 by agundry          ###   ########.fr        #
+#    Updated: 2017/07/31 18:51:29 by agundry          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	libft.a
+NAME =	libftprintf.a
 
 CC =	gcc
 
