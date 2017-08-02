@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agundry <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/01 16:57:09 by agundry           #+#    #+#             */
+/*   Updated: 2017/08/01 17:00:51 by agundry          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 char	*parse_flags(char *format, t_format *fmt)
@@ -35,7 +47,7 @@ char	*parse_min_width(char *format, t_format *fmt)
 	return (format);
 }
 
-char	*parse_precision(char *format, t_format *fmt) //add * functionality here
+char	*parse_precision(char *format, t_format *fmt)
 {
 	int		res;
 	char	n;
@@ -80,13 +92,14 @@ char	*parse_len_mod(char *format, t_format *fmt)
 	}
 	return (format);
 }
-int	parse_conv(char c, t_format *fmt)
+
+int		parse_conv(char c, t_format *fmt)
 {
 	if (c == 'd' || c == 'i')
 		fmt->conv = 'd';
-	else if (c == 'c' || c == 's' || c == 'S' ||  c == 'C' || c == '%')
+	else if (c == 'c' || c == 's' || c == 'S' || c == 'C' || c == '%')
 		fmt->conv = c;
-	else if (c == 'o' || c == 'u' || c == 'x' ||  c == 'X' || c == 'p')
+	else if (c == 'o' || c == 'u' || c == 'x' || c == 'X' || c == 'p')
 		fmt->conv = c;
 	else if (c == 'D' || c == 'O' || c == 'U')
 	{

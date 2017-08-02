@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   conv_d.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agundry <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/01 16:54:30 by agundry           #+#    #+#             */
+/*   Updated: 2017/08/01 17:15:45 by agundry          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	formatting_d(t_buf *buf, t_format *fmt, char *arg, size_t arglen)
@@ -20,7 +32,7 @@ static int	formatting_d(t_buf *buf, t_format *fmt, char *arg, size_t arglen)
 	return (1);
 }
 
-int	conv_d(t_buf *buf, t_format *fmt, va_list vl)
+int			conv_d(t_buf *buf, t_format *fmt, va_list vl)
 {
 	char	*arg;
 
@@ -32,8 +44,8 @@ int	conv_d(t_buf *buf, t_format *fmt, va_list vl)
 		arg = ft_stoa_base((short)va_arg(vl, int), 10);
 	else
 		arg = ft_stoa_base(va_arg(vl, long), 10);
-	if  (!arg)
-		exit_printf(5); ////// ???????????
+	if (!arg)
+		exit_printf(5);
 	formatting_d(buf, fmt, arg, ft_strlen(arg));
 	free(arg);
 	return (1);

@@ -1,8 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   conv_x.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agundry <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/01 16:55:23 by agundry           #+#    #+#             */
+/*   Updated: 2017/08/02 16:28:24 by agundry          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-char	*ft_strtoupper(char *arg)
+char		*ft_strtoupper(char *arg)
 {
-	char	*c = arg;
+	char	*c;
+
+	c = arg;
 	while (*c)
 		*c = ft_toupper(*c);
 	return (arg);
@@ -26,7 +40,7 @@ static int	formatting_x(t_buf *buf, t_format *fmt, char * arg, size_t arglen)
 	return (0);
 }
 
-int		conv_x(t_buf *buf, t_format *fmt, va_list vl)
+int			conv_x(t_buf *buf, t_format *fmt, va_list vl)
 {
 	char	*arg;
 
@@ -41,13 +55,13 @@ int		conv_x(t_buf *buf, t_format *fmt, va_list vl)
 	if (!arg)
 		exit_printf(8);
 	if (fmt->conv == 'X')
-		arg = ft_strtoupper(arg); ////????
+		arg = ft_strtoupper(arg);
 	formatting_x(buf, fmt, arg, ft_strlen(arg));
 	free(arg);
 	return (1);
 }
 
-int		conv_p(t_buf *buf, t_format *fmt, va_list vl)
+int			conv_p(t_buf *buf, t_format *fmt, va_list vl)
 {
 	char	*arg;
 

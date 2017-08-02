@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_core.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agundry <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/01 17:04:43 by agundry           #+#    #+#             */
+/*   Updated: 2017/08/01 17:04:56 by agundry          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	ft_printf_core(char *format, va_list ap, char **ret)
+int		ft_printf_core(char *format, va_list ap, char **ret)
 {
 	t_format	fmt;
 	t_buf		buf;
@@ -21,7 +33,7 @@ int	ft_printf_core(char *format, va_list ap, char **ret)
 	return ((int)ft_strlen(buf.buf));
 }
 
-int	tables_dispatch(t_buf *buf, t_format *fmt, va_list vl)
+int		tables_dispatch(t_buf *buf, t_format *fmt, va_list vl)
 {
 	static char	*spec = "csCSdouxXp%";
 	static t_fc	fp[11];
