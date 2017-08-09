@@ -6,7 +6,7 @@
 #    By: agundry <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 09:03:11 by agundry           #+#    #+#              #
-#    Updated: 2017/08/02 19:34:02 by agundry          ###   ########.fr        #
+#    Updated: 2017/08/08 19:34:21 by agundry          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,25 +42,25 @@ SRC =	ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
 		int_formatting.c str_formatting.c conv_c.c conv_d.c conv_prc.c \
 		conv_s.c conv_uo.c conv_wc.c conv_wcs.c conv_x.c utils.c
 
-OBJ =	$(SRC:%.c=%.o)
+OBJ = $(SRC:%.c=%.o)
 
-ARCH =	ar rc $(NAME) $(OBJ)
+ARCH = ar rc $(NAME) $(OBJ)
 
-INDX =	ranlib $(NAME)
+INDX = ranlib $(NAME)
 
-all : $(NAME)
+all: $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME): $(OBJ)
 	$(ARCH)
 	$(INDX)
 
-$(OBJ) : %.o: %.c
+$(OBJ): %.o: %.c
 	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
-clean :	
+clean:	
 	rm -f $(OBJ)
 
-fclean : clean
+fclean: clean
 	rm -f $(NAME)
 
-re : fclean all
+re: fclean all
