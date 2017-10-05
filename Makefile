@@ -44,15 +44,13 @@ SRC = ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
 
 OBJ = $(SRC:%.c=%.o)
 
-ARCH = ar rc $(NAME) $(OBJ)
+ARCH = ar -rcs $(NAME) $(OBJ)
 
-INDX = ranlib $(NAME)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(ARCH)
-	$(INDX)
 
 $(OBJ): %.o: %.c
 	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
