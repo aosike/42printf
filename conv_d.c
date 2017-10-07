@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 static int	formatting_d(t_buf *buf, t_format *fmt, char *arg, size_t arglen)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 int	conv_prc(t_buf *buf, t_format *fmt, va_list vl)
 {

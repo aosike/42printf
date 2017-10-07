@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 int		ft_printf_core(char *format, va_list ap, char **ret)
 {
@@ -18,10 +18,11 @@ int		ft_printf_core(char *format, va_list ap, char **ret)
 	t_buf		buf;
 	char		*per;
 
+	ft_buf_init(&buf, BUFF_SIZE);
 	while ((per = ft_strchr(format, '%')) != NULL)
 	{
 		ft_bzero(&fmt, sizeof(fmt));
-		ft_bzero(&buf, BUFF_SIZE);
+		ft_buf_add(&buf, format, per - format);
 		format = parse_fmt(per + 1, &fmt);
 		if (fmt.conv != '\0')
 			if (tables_dispatch(&buf, &fmt, ap) == -1)

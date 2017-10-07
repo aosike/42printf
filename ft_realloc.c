@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "libftprintf.h"
 
 void	*ft_realloc(void *ptr, size_t size, size_t oldsize)
 {
