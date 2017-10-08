@@ -6,7 +6,7 @@
 /*   By: agundry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/01 16:55:23 by agundry           #+#    #+#             */
-/*   Updated: 2017/08/02 16:28:24 by agundry          ###   ########.fr       */
+/*   Updated: 2017/10/08 15:29:28 by agundry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ char		*ft_strtoupper(char *arg)
 	char	*c;
 
 	c = arg;
-	while (*c)
+	while (*c){
 		*c = ft_toupper(*c);
+		c++;
+	}
 	return (arg);
 }
 
