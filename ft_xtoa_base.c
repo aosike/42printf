@@ -31,13 +31,13 @@ char	*ft_utoa_base(unsigned long long int n, int base)
 
 	charset = "0123456789abcdef";
 	i = 0;
-	if ((s = ft_strnew(65)) == NULL) //why 65
+	if ((s = ft_strnew(65)) == NULL)
 		return (NULL);
 	if (n == 0)
 		s[i++] = '0';
 	while (n != 0)
 	{
-		s[i++] = charset[FT_ABS(n % base)]; //make this macro
+		s[i++] = charset[FT_ABS(n % base)];
 		n /= base;
 	}
 	s[i] = '\0';
@@ -54,7 +54,7 @@ char	*ft_stoa_base(long long int n, int base)
 	charset = "0123456789abcdef";
 	i = 0;
 	neg = (n < 0);
-	if ((s = ft_strnew(66)) == NULL) //why 66?
+	if ((s = ft_strnew(66)) == NULL)
 		return (NULL);
 	if (n == 0)
 		s[i++] = '0';
