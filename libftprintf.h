@@ -25,13 +25,12 @@
 # define FT_MAX(a, b) ((a) < (b) ? (b) : (a))
 # define FT_BUF_FREE(b) (free((b)->buf))
 
-# ifndef MB_LEN_MAX
-#  define MB_LEN_MAX 4
-# endif
+//# ifndef MB_LEN_MAX
+//#  define MB_LEN_MAX 4
+//# endif
 # ifndef BUFF_SIZE
 #  define BUFF_SIZE 1024
 # endif
-
 
 typedef	struct		s_list
 {
