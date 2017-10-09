@@ -1,5 +1,5 @@
 #include "libftprintf.h"
 
 int	main(void){
-	ft_printf("%c", '4');
+	ft_printf("%X%c", '4', '4');
 }
