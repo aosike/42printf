@@ -25,7 +25,7 @@ int	int_padding(t_buf *buf, t_format *fmt, size_t arglen, int fchar)
 	}
 	else
 	{
-		max = FT_MAX(arglen - 1, oldprec) + fmt->f_space;
+		max = FT_MAX(arglen, oldprec) + fmt->f_space + fmt->f_plus;
 		pad = fmt->min_width > max ? fmt->min_width - max : 0;
 	}
 	if (pad > 0)
@@ -40,11 +40,11 @@ int	int_sign(t_buf *buf, t_format *fmt, char *arg)
 	else
 	{
 		if (fmt->f_space == 0 && fmt->f_plus == 0)
-			return (2); /////////
+			return (2);
 		ft_buf_set(buf, ((fmt->f_plus) ? '+' : ' '), 1);
 		return (1);
 	}
-	return (3); /////////////
+	return (3);
 }
 
 int	int_precision(t_buf *buf, t_format *fmt, size_t arglen)

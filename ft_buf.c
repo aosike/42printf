@@ -4,7 +4,7 @@ t_buf	*ft_buf_init(t_buf *b, size_t size)
 {
 	size_t	s;
 
-	s = (size == 0) ? 1024 : size; //make macro for size?
+	s = (size == 0) ? 1024 : size;
 	b->bmax = s;
 	b->blen = 0;
 	b->buf = malloc(sizeof(char) * s);
