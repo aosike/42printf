@@ -88,7 +88,8 @@ char	*parse_len_mod(char *format, t_format *fmt)
 	else
 	{
 		fmt->len_mod = c;
-		format += 1;
+		while (c == 'h' || c == 'l' || c == 'j' || c == 'z')
+			c = *++format;
 	}
 	return (format);
 }
