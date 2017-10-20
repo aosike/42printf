@@ -6,7 +6,7 @@
 /*   By: agundry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/01 17:04:43 by agundry           #+#    #+#             */
-/*   Updated: 2017/10/08 14:56:03 by agundry          ###   ########.fr       */
+/*   Updated: 2017/10/20 14:12:16 by agundry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_printf_core(char *format, va_list ap, char **ret)
 	if (*format != '\0')
 		ft_buf_add(&buf, format, ft_strlen(format));
 	*ret = buf.buf;
-	return ((int)ft_strlen(buf.buf));
+	return (buf.blen);
 }
 
 int		tables_dispatch(t_buf *buf, t_format *fmt, va_list vl)
