@@ -80,7 +80,7 @@ char	*parse_len_mod(char *format, t_format *fmt)
 		fmt->len_mod = 'H';
 		format += 2;
 	}
-	if (c == 'l' && format[1] == 'l')
+	else if (c == 'l' && format[1] == 'l')
 	{
 		fmt->len_mod = 'L';
 		format += 2;
