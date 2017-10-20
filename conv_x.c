@@ -49,7 +49,7 @@ int			conv_x(t_buf *buf, t_format *fmt, va_list vl)
 	if (fmt->len_mod == '\0')
 		arg = ft_utoa_base(va_arg(vl, unsigned), 16);
 	else if (fmt->len_mod == 'H')
-		arg = ft_utoa_base((unsigned char)va_arg(vl, unsigned), 16);
+		arg = ft_utoa_base((unsigned char)va_arg(vl, uintmax_t), 16);
 	else if (fmt->len_mod == 'h')
 		arg = ft_utoa_base((unsigned short)va_arg(vl, unsigned), 16);
 	else

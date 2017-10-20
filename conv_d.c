@@ -39,7 +39,7 @@ int			conv_d(t_buf *buf, t_format *fmt, va_list vl)
 	if (fmt->len_mod == '\0')
 		arg = ft_stoa_base(va_arg(vl, int), 10);
 	else if (fmt->len_mod == 'H')
-		arg = ft_stoa_base((short)va_arg(vl, int), 10);
+		arg = ft_stoa_base((signed char)va_arg(vl, int), 10);
 	else if (fmt->len_mod == 'h')
 		arg = ft_stoa_base((short)va_arg(vl, int), 10);
 	else
