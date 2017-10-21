@@ -20,7 +20,7 @@ int	int_padding(t_buf *buf, t_format *fmt, size_t arglen, int fchar)
 	oldprec = (fmt->prec == -1) ? 0 : fmt->prec;
 	if (fchar == '-')
 	{
-		max = FT_MAX(arglen - 1, oldprec) + fmt->f_space;
+		max = FT_MAX(arglen, oldprec) + fmt->f_space;
 		pad = fmt->min_width > max ? fmt->min_width - max : 0;
 	}
 	else
