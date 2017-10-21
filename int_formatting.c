@@ -4,8 +4,8 @@ int	int_format_intro(t_format *fmt, char *arg, size_t *arglen)
 {
 	if (fmt->prec == 0 && ft_strequ(arg, "0"))
 		*arglen = 0;
-	if (fmt->prec > -1)
-		fmt->f_zero = 0;
+	//if (fmt->prec > -1)
+	//	fmt->f_zero = 0;
 	return (0);
 }
 
