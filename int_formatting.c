@@ -4,8 +4,8 @@ int	int_format_intro(t_format *fmt, char *arg, size_t *arglen)
 {
 	if (fmt->prec == 0 && ft_strequ(arg, "0"))
 		*arglen = 0;
-	//if (fmt->prec > -1)
-	//	fmt->f_zero = 0;
+	if (fmt->prec > -1)
+		fmt->f_zero = 0;
 	return (0);
 }
 
@@ -21,7 +21,7 @@ int	int_padding(t_buf *buf, t_format *fmt, size_t arglen, int fchar)
 	if (fchar == '-')
 	{
 		max = FT_MAX(arglen, oldprec) + fmt->f_space;
-		pad = fmt->min_width > max ? fmt->min_width - max : 0;
+		pad = fmt->min_width - 1 > max ? fmt->min_width - max : 0;
 	}
 	else
 	{
