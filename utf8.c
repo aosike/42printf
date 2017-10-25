@@ -1,6 +1,6 @@
 #include "libftprintf.h"
 
-int	ft_wctomb(char *s, wchar_t wchar)
+int		ft_wctomb(char *s, wchar_t wchar)
 {
 	if (wchar < 0)
 		return (-1);
@@ -8,17 +8,17 @@ int	ft_wctomb(char *s, wchar_t wchar)
 		return (-1);
 	if (wchar > 0x10FFFF)
 		return (-1);
-	if ((wchar >> 7) == 0)
-	{
+	//if ((wchar >> 7) == 0)
+	//{
 		s[0] = (unsigned char)wchar;
 		return (1);
-	}
+	/*}
 	if ((wchar >> 11) == 0)
 		return (conv_to_utf8(2, wchar, s));
 	if ((wchar >> 16) == 0)
 		return (conv_to_utf8(3, wchar, s));
 	if ((wchar >> 21) == 0)
-		return (conv_to_utf8(4, wchar, s));
+		return (conv_to_utf8(4, wchar, s));*/
 	return (-1);
 }
 
@@ -34,7 +34,7 @@ size_t	ft_wcstombs(char *s, wchar_t *pwcs, size_t n)
 		if ((i = ft_wctomb(tmp, *pwcs)) == -1)
 			return (-1);
 		if ((size_t)i > n)
-			break;
+			break ;
 		ft_memcpy(s + offset, tmp, i);
 		offset += i;
 		++pwcs;
