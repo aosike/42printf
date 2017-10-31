@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utf8.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agundry <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/31 13:37:39 by agundry           #+#    #+#             */
+/*   Updated: 2017/10/31 13:37:47 by agundry          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
 
 int		ft_wctomb(char *s, wchar_t wchar, t_format *fmt)
@@ -8,17 +20,20 @@ int		ft_wctomb(char *s, wchar_t wchar, t_format *fmt)
 		return (-1);
 	if (wchar > 0x10FFFF)
 		return (-1);
-	if ((wchar >> 7) == 0 || !(fmt->f_utf))
+	if ((wchar >> 7) == 0)
 	{
 		s[0] = (unsigned char)wchar;
 		return (1);
 	}
-	if ((wchar >> 11) == 0)
-		return (conv_to_utf8(2, wchar, s));
-	if ((wchar >> 16) == 0)
-		return (conv_to_utf8(3, wchar, s));
-	if ((wchar >> 21) == 0)
-		return (conv_to_utf8(4, wchar, s));
+	if (fmt->f_utf)
+	{
+		if ((wchar >> 11) == 0)
+			return (conv_to_utf8(2, wchar, s));
+		if ((wchar >> 16) == 0)
+			return (conv_to_utf8(3, wchar, s));
+		if ((wchar >> 21) == 0)
+			return (conv_to_utf8(4, wchar, s));
+	}
 	return (-1);
 }
 
