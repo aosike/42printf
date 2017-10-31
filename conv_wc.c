@@ -6,7 +6,7 @@
 /*   By: agundry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/01 16:55:08 by agundry           #+#    #+#             */
-/*   Updated: 2017/08/01 16:55:10 by agundry          ###   ########.fr       */
+/*   Updated: 2017/10/31 11:47:27 by agundry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	conv_wc(t_buf *buf, t_format *fmt, va_list vl)
 	size_t	arglen;
 	int		wclen;
 
-	if ((wclen = ft_wctomb(arg, va_arg(vl, wint_t))) == -1)
+	if ((wclen = ft_wctomb(arg, va_arg(vl, wint_t), fmt)) == -1)
 		return (-1);
 	arg[wclen] = '\0';
 	if ((arglen = ft_strlen(arg)) == 0)

@@ -1,4 +1,4 @@
-# include "libftprintf.h"
+#include "libftprintf.h"
 
 t_buf	*ft_buf_init(t_buf *b, size_t size)
 {

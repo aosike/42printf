@@ -1,6 +1,6 @@
 #include "libftprintf.h"
 
-int		ft_wctomb(char *s, wchar_t wchar)
+int		ft_wctomb(char *s, wchar_t wchar, t_format *fmt)
 {
 	if (wchar < 0)
 		return (-1);
@@ -8,21 +8,21 @@ int		ft_wctomb(char *s, wchar_t wchar)
 		return (-1);
 	if (wchar > 0x10FFFF)
 		return (-1);
-	//if ((wchar >> 7) == 0)
-	//{
+	if ((wchar >> 7) == 0 || !(fmt->f_utf))
+	{
 		s[0] = (unsigned char)wchar;
 		return (1);
-	/*}
+	}
 	if ((wchar >> 11) == 0)
 		return (conv_to_utf8(2, wchar, s));
 	if ((wchar >> 16) == 0)
 		return (conv_to_utf8(3, wchar, s));
 	if ((wchar >> 21) == 0)
-		return (conv_to_utf8(4, wchar, s));*/
+		return (conv_to_utf8(4, wchar, s));
 	return (-1);
 }
 
-size_t	ft_wcstombs(char *s, wchar_t *pwcs, size_t n)
+size_t	ft_wcstombs(char *s, wchar_t *pwcs, size_t n, t_format *fmt)
 {
 	char	tmp[MB_LEN_MAX];
 	size_t	offset;
@@ -31,7 +31,7 @@ size_t	ft_wcstombs(char *s, wchar_t *pwcs, size_t n)
 	offset = 0;
 	while (*pwcs != L'\0' && n != 0)
 	{
-		if ((i = ft_wctomb(tmp, *pwcs)) == -1)
+		if ((i = ft_wctomb(tmp, *pwcs, fmt)) == -1)
 			return (-1);
 		if ((size_t)i > n)
 			break ;

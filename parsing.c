@@ -6,7 +6,7 @@
 /*   By: agundry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/01 16:57:09 by agundry           #+#    #+#             */
-/*   Updated: 2017/08/01 17:00:51 by agundry          ###   ########.fr       */
+/*   Updated: 2017/10/31 11:44:50 by agundry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*parse_flags(char *format, t_format *fmt)
 	char	c;
 
 	c = *format;
-	while (c == '#' || c == '0' || c == '-' || c == ' ' || c == '+')
+	while (c == '#' || c == '0' || c == '-' || c == ' ' || c == '+' || c == '^')
 	{
 		if (c == '#')
 			fmt->f_sharp = 1;
@@ -29,6 +29,8 @@ char	*parse_flags(char *format, t_format *fmt)
 			fmt->f_space = 1;
 		else if (c == '+')
 			fmt->f_plus = 1;
+		else if (c == '^')
+			fmt->f_utf = 1;
 		c = *++format;
 	}
 	return (format);

@@ -6,7 +6,7 @@
 /*   By: agundry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/01 16:55:15 by agundry           #+#    #+#             */
-/*   Updated: 2017/08/01 16:55:17 by agundry          ###   ########.fr       */
+/*   Updated: 2017/10/31 11:47:39 by agundry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	conv_wcs(t_buf *buf, t_format *fmt, va_list vl)
 	if ((arg = (char*)malloc(arglenmax)) == 0)
 		exit_printf(4);
 	wlen = (fmt->prec < 0) ? arglenmax : fmt->prec;
-	if ((wlen = ft_wcstombs(arg, wcs, wlen)) == (size_t)-1)
+	if ((wlen = ft_wcstombs(arg, wcs, wlen, fmt)) == (size_t)-1)
 		return (-1);
 	if (fmt->f_minus == 0)
 		str_formatting(buf, fmt, wlen);

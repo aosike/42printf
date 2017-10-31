@@ -17,14 +17,15 @@ char		*ft_strtoupper(char *arg)
 	char	*c;
 
 	c = arg;
-	while (*c){
+	while (*c)
+	{
 		*c = ft_toupper(*c);
 		c++;
 	}
 	return (arg);
 }
 
-static int	formatting_x(t_buf *buf, t_format *fmt, char * arg, size_t arglen)
+static int	formatting_x(t_buf *buf, t_format *fmt, char *arg, size_t arglen)
 {
 	int_format_intro(fmt, arg, &arglen);
 	if (fmt->f_minus == 0 && fmt->f_zero == 0)
@@ -37,7 +38,7 @@ static int	formatting_x(t_buf *buf, t_format *fmt, char * arg, size_t arglen)
 		int_padding(buf, fmt, (fmt->f_sharp) ? arglen + 2 : arglen, arg[0]);
 	int_precision(buf, fmt, arglen);
 	ft_buf_add(buf, arg, arglen);
-	if (fmt->f_minus ==1)
+	if (fmt->f_minus == 1)
 		int_padding(buf, fmt, (fmt->f_sharp) ? arglen + 2 : arglen, arg[0]);
 	return (0);
 }
@@ -67,7 +68,7 @@ int			conv_p(t_buf *buf, t_format *fmt, va_list vl)
 {
 	char	*arg;
 
-	arg = ft_utoa_base((unsigned long long) va_arg(vl, void*), 16);
+	arg = ft_utoa_base((unsigned long long)va_arg(vl, void*), 16);
 	if (!arg)
 		exit_printf(9);
 	fmt->f_sharp = 1;

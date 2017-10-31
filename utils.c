@@ -6,7 +6,7 @@ void	exit_printf(int code)
 	exit(code);
 }
 
-int	cleanup_buf(t_buf *pb)
+int		cleanup_buf(t_buf *pb)
 {
 	FT_BUF_FREE(pb);
 	return (-1);

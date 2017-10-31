@@ -6,7 +6,7 @@
 /*   By: agundry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:47:00 by agundry           #+#    #+#             */
-/*   Updated: 2017/02/14 13:58:19 by agundry          ###   ########.fr       */
+/*   Updated: 2017/10/31 11:42:19 by agundry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct		s_format
 	unsigned int	f_minus: 1;
 	unsigned int	f_space: 1;
 	unsigned int	f_plus: 1;
+	unsigned int	f_utf: 1;
 	unsigned int	min_width;
 	int				prec;
 	char			len_mod;
@@ -164,8 +165,8 @@ int					int_sign(t_buf *buf, t_format *fmt, char *arg);
 int					int_precision(t_buf *buf, t_format *fmt, size_t arglen);
 
 /* utf8.c */
-int					ft_wctomb(char *s, wchar_t wchar);
-size_t				ft_wcstombs(char *s, wchar_t *pwcs, size_t n);
+int					ft_wctomb(char *s, wchar_t wchar, t_format *fmt);
+size_t				ft_wcstombs(char *s, wchar_t *pwcs, size_t n, t_format *fmt);
 size_t				ft_wcslen(const wchar_t *s);
 int					conv_to_utf8(int wbytes, wchar_t wchar, char *s);
 
